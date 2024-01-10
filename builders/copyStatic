@@ -1,0 +1,41 @@
+#!/bin/bash
+
+set -e
+
+mkdir -p public/css/bower public/js/libs
+
+rsync -a                               \
+  --include="*/"                       \
+  --include="*.js"                     \
+  --exclude="*"                        \
+  vendor/ public/js/libs/
+
+rsync -a                               \
+  --include="*/"                       \
+  --include="*.css"                    \
+  --exclude="*"                        \
+  vendor/ public/css/
+
+rsync -a                               \
+  --include="*/"                       \
+  --include="*.js"                     \
+  --exclude="*"                        \
+  app/ public/js
+
+rsync -a                               \
+  --include="*/"                       \
+  --include="*.css"                    \
+  --exclude="*"                        \
+  stylesheets/ public/css
+
+rsync -a                               \
+  --include="*/"                       \
+  --include="*.jpg"                    \
+  --include="*.gif"                    \
+  --include="*.jpeg"                   \
+  --include="*.css"                    \
+  --include="*.png"                    \
+  --exclude="*"                        \
+  vendor/bower/ public/css/bower/
+
+rsync -a static/ public/

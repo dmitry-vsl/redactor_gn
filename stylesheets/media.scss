@@ -1,0 +1,109 @@
+@import "compass/css3";
+@import "compass/css3/user-interface";
+@media (max-width: 980px) {
+  .overview .gn-name{
+    .name{
+      max-width: 550px;
+    }
+  }
+  .gn-status, .gn-location{
+    .location{
+      max-width: 550px;
+    }
+  }
+  .gn-default-wrapper {
+    padding-top: 0;
+    overflow: hidden;
+  }
+  .gn-page-container, .gn-head-wrapper {
+    @include border-radius(0);
+  }
+}
+@media (min-width: 981px) and (max-width: 1096px) {
+  .gn-panelspace-content .wrapper {
+    margin: 0;
+  }
+  .overview .gn-name{
+    .name{
+      max-width: 550px;
+    }
+  }
+  .gn-status, .gn-location{
+    .location{
+      max-width: 550px;
+    }
+  }
+  .gn-page-container {
+    width: 100%;
+    border: 0 none;
+  }
+  .gn-default-wrapper {
+    padding-top: 0;
+  }
+  .gn-page-container, .gn-head-wrapper {
+    @include border-radius(0);
+  }
+  .gn-cell.description {
+    padding-left: 25px;
+  }
+  .gn-wrapper-media {
+    .gn-content-media-wrapper-inner{
+      width:824px;
+      position:relative;
+    }
+  }
+}
+
+@media (min-width: 1097px) and (max-width: 1377px) {
+  .overview .gn-name{
+    .name{
+      max-width: 600px;
+    }
+  }
+  .gn-status, .gn-location{
+    .location{
+      max-width: 600px;
+    }
+  }
+}
+
+@media (min-width: 1378px) and (max-width: 1600px) {
+  .overview .gn-name{
+    .name{
+      max-width: 750px;
+    }
+  }
+  .gn-status, .gn-location{
+    .location{
+      max-width: 750px;
+    }
+  }
+  .gn-block-title {
+    max-width: 685px;
+  }
+}
+
+@media (min-width: 1600px) {
+  .overview .gn-name{
+    .name{
+      max-width: 950px;
+    }
+  }
+  .gn-status, .gn-location{
+    .location{
+      max-width: 950px;
+    }
+  }
+}
+@media (min-width: 1920px) {
+  .overview .gn-name{
+    .name{
+      max-width: 1000px;
+    }
+  }
+  .gn-status, .gn-location{
+    .location{
+      max-width: 1000px;
+    }
+  }
+}

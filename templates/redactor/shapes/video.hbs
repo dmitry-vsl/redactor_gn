@@ -1,0 +1,66 @@
+{{> redactor.shapes.border }}
+
+{{#if typevideo}}
+  <div class='gn-redactor-video-container shape-content js-withBorder 
+  video-container'>
+    {{#if placeholder}}
+      <div class="default-image">
+        <i class="editor-video-insert"></i>
+      </div>
+    {{else}}
+      {{#unless previewMode}}
+        {{#if youtube}}
+          <div class='gn-redactor-video js-video'></div>
+        {{else}}
+          <video draggable="false">
+            <source src="{{src}}" type="video/mp4">
+          </video>
+        {{/if}}
+          <div class="controls-block js-intervalControlsContainer" >
+              <div class="progress-line-video-container js-wholetimebar">
+                  <div class="progress-line-video js-timeline">
+                      <div class="js-position-helper" style="position : 
+                      absolute; top: 0px; left:0px; height: 0; width: 0; 
+                      opacity:0"></div>
+                      <div class="blue-line js-videoTimeline" 
+                           data-hook-mode="playback"></div>
+                      <div class="red-line js-interval" style="display : 
+                      none" data-hook-mode="interval"></div>
+                  </div>
+                  <div class="left-fixed-indent js-end-of-timeline"></div>
+              </div>
+              <div class="buttonContainer" data-hook-mode="playback">
+                  <div class="play-btn js-playBt" style="display:none" 
+                       ></div>
+                  <div class="pause-btn js-pauseBt" 
+                       ></div>
+              </div>
+                  <div class="time js-playbackTimeContainer" 
+                       data-hook-mode="playback"><span 
+                          class="js-currentTime">00:00</span><span 
+                          class="line">/</span>
+                      <span class="js-wholeTime">00:00</span>
+                  </div>
+                  <div class="js-intervalTimeContainer" 
+                       data-hook-mode="interval">
+                      <div class="start"><span>{{
+                          l.redactor.video.start
+                      }}: </span><span 
+                              class="js-intervalModeTimeStart" 
+                              data-hook="startSeconds"></span></div>
+                      <div class="end"><span>{{l
+                          .redactor.video.end}}: </span><span 
+                              class="js-intervalModeTimeEnd" 
+                              data-hook="endSeconds"></span></div>
+                  </div>
+              </div>
+      {{/unless}}
+      <div class='gn-redactor-video-preview js-preview' 
+                style='background-image:url("{{previewSrc}}");'>
+        <button class='gn-btn gn-btn-simple js-play'>
+          play
+        </button>
+      </div>
+    {{/if}}
+  </div>
+{{/if}}

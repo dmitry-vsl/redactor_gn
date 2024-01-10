@@ -1,0 +1,25 @@
+<div class="panel-header">
+  <div class='caption'>Image</div>
+  {{>redactor.shapePanels.closeButton}}
+  <div class="top-options js-controlButtons">
+    <div class="gn-btn gn-btn-default js-maximize"><i class="maximize-icon"></i></div>
+    <div class="gn-btn gn-btn-default js-crop"><i class="crop-icon"></i></div>
+    <div class="gn-btn gn-btn-default js-duplicate"><i class="copy-icon"></i></div>
+    <div class="gn-btn gn-btn-default js-delete"><i class="delete-icon"></i></div>
+  </div>
+  {{> redactor.shapePanels.applyButtons }}
+</div>
+<div class="image-settings-wrap">
+  <div class="block">
+    {{> redactor.shapePanels.imagePreview}}
+    <button class="gn-btn gn-btn-primary js-google">find in google</button>
+  </div>
+  <div class="block">
+    <div class="caption">Opacity</div>
+    <div class="progress js-opacity">
+      <div class="progress-inner js-slider-stripe"></div>
+      <div class="count js-slider-text"></div>
+    </div>
+  </div>
+  {{> redactor.shapePanels.borderBlock }}
+</div>

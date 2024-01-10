@@ -1,0 +1,80 @@
+<div class="panel-header">
+  <div class="caption">Customize</div>
+  {{>redactor.shapePanels.closeButton}}
+</div>
+<ul class="customize-list">
+  <li class="item">
+    <p class="title">Color scheme</p>
+    <div class="custom-block js-color">
+      <div class="bg-inner js-color-preview-background">
+        <p class="custom-name js-color-theme-name"></p>
+        <div class="scheme-colors">
+          <div class="color js-color-preview-header"></div>
+          <div class="color js-color-preview-content"></div>
+          <div class="color js-color-preview-fill"></div>
+          <div class="color js-color-preview-border"></div>
+        </div>
+      </div>
+    </div>
+    <div class="popup color-schemes js-color-popup">
+      <div class="arrow left"></div>
+      <div class="popup-wrapper">
+        <div class='nano'>
+          <div class='content'>
+            <ul class="customize-colors-list">
+              {{#each THEMES.color}}
+                <li class="custom-item js-color-item" data-themeIndex='{{@index}}'>
+                  <div class="bg-inner" style="background:{{this.background}}">
+                    <p class="custom-name" style='color: {{this.header}}'> 
+                      {{this.name}}
+                    </p>
+                    <div class="scheme-colors">
+                      <div class="color" style="background: {{this.header }}"></div>
+                      <div class="color" style="background: {{this.content}}"></div>
+                      <div class="color" style="background: {{this.fill   }}"></div>
+                      <div class="color" style="background: {{this.border }}"></div>
+                    </div>
+                  </div>
+                </li>
+              {{/each}}
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </li>
+  <li class="item">
+    <p class="title">Typography</p>
+    <div class="custom-block js-font">
+      <div class="bg-inner js-color-preview-background">
+        <div class="font-big js-font-preview-header js-font-color-header"></div>
+        <div class="font-little js-font-preview-content js-font-color-content"></div>
+      </div>
+    </div>
+    <div class="popup typography js-font-popup">
+      <div class="arrow left"></div>
+      <div class="popup-wrapper">
+        <div class='nano'>
+          <div class='content'>
+            <ul class="typography-list">
+              {{#each THEMES.font}}
+                <li class="list-item js-font-item" data-themeIndex='{{@index}}'>
+                  <div class="bg-inner js-color-preview-background">
+                    <div class="font-big js-font-color-header" 
+                      style='font-family:{{this.header}}'>
+                        {{this.header}}
+                    </div>
+                    <div class="font-little js-font-color-content" 
+                      style='font-family:{{this.content}}'>
+                        {{this.content}}
+                    </div>
+                  </div>
+                </li>
+              {{/each}}
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </li>
+</ul>

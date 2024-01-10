@@ -1,0 +1,11 @@
+#!/bin/bash
+
+set -e 
+
+node_modules/requirejs/bin/r.js   -o    \
+  optimize=none                         \
+  baseUrl=public/js                     \
+  mainConfigFile=public/js/config.js    \
+  out=public/js/config.js               \
+  name=config                           \
+  preserveLicenseComments=false         

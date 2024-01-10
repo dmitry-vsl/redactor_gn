@@ -1,0 +1,29 @@
+<div class="panel-header">
+  <div class="caption">Video</div>
+  {{>redactor.shapePanels.closeButton}}
+  <div class="top-options js-controlButtons">
+    <div class="gn-btn gn-btn-default js-maximize"><i class="maximize-icon"></i></div>
+    <div class="gn-btn gn-btn-default js-interval"><i class="video-opt-icon"></i></div>
+    <div class="gn-btn gn-btn-default js-duplicate"><i class="copy-icon"></i></div>
+    <div class="gn-btn gn-btn-default js-delete"><i class="delete-icon"></i></div>
+  </div>
+  {{> redactor.shapePanels.applyButtons }}
+</div>
+<div class="image-settings-wrap">
+  <div class="block">
+    {{>redactor.shapePanels.imagePreview}}
+    <button class="gn-btn gn-btn-primary js-youtube">find on youtube</button>
+  </div>
+  <div class="block autoplay">
+    <div class="caption">Autoplay</div>
+    <div class="gn-switch gn-right">
+      <label for="js-autoplay" class="gn-label-control">
+         <input type="checkbox" value="" name="" class="gn-checkbox-switch js-autoplay" id="js-autoplay">
+         <span class="gn-switch-control"></span>
+        <span class="gn-switch-label gn-switch-on">On</span>
+         <span class="gn-switch-label gn-switch-off">Off</span>
+       </label>
+    </div>
+  </div>
+  {{>redactor.shapePanels.borderBlock}}
+</div>

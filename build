@@ -1,0 +1,43 @@
+#!/bin/bash
+set -e
+
+cd `dirname $0`
+
+function usage(){
+cat << EOF
+usage: ./build COMMAND
+Commands: 
+  build - development build, no minimization
+  test - run tests
+  release - production build
+  dev - build and start watching for file changes
+Default command is 'build'
+EOF
+}
+
+case $1 in
+  release)
+    ./builders/release
+    exit 0;
+    ;;
+  dev)
+    ./builders/dev
+    exit 0;
+    ;;
+  build)
+    ./builders/build
+    exit 0;
+    ;;
+  test)
+    ./builders/test
+    exit 0;
+    ;;
+  "")
+    # By default run build command
+    ./builders/build
+    exit 0;
+    ;;
+  *)
+    usage
+    exit 1
+esac

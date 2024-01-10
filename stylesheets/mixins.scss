@@ -1,0 +1,204 @@
+// all mixins
+@import "compass/css3";
+@import "variables";
+
+@mixin presentation-blocks(
+  $height: auto,
+  $padding-top: 0px,
+  $border-color: none,
+  $bg: $white,
+  $box-sizing: 'border-box') {
+  height: $height;
+  padding-top: $padding-top;
+  border-bottom: 1px solid $border-color;
+  background-color: $bg;
+  @include box-sizing($box-sizing);
+}
+@mixin presentation-title(
+  $font-size: 'inherit',
+  $color: $white,
+  $letter-spacing: inherit,
+  $font-weight: 700,
+  $text-transform: none) {
+  font-size: $font-size;
+  color: $color;
+  letter-spacing: $letter-spacing;
+  text-transform: $text-transform;
+  font-family: 'Open Sans';
+  font-weight: $font-weight;
+}
+
+@mixin hover-transition($property: 'all', $duration: 0.1s, $time-func: ease-in-out) {
+  @include transition-property($property);
+  @include transition-duration($duration);
+  @include transition-timing-function($time-func);
+}
+@mixin btn-shadow() {
+  @include box-shadow(rgba($blacked, 1) 0 0 20px 5px inset);
+}
+@-webkit-keyframes pulse {
+  0% { -webkit-transform: opacity 5s linear; opacity: 0.1; }
+  100% { -webkit-transform: opacity 5s linear; opacity: 1; }
+}
+@-moz-keyframes pulse {
+  0% { -moz-transform: opacity 5s linear; opacity: 0.1; }
+  100% { -moz-transform: opacity 5s linear; opacity: 1; }
+}
+@-o-keyframes pulse {
+  0% { -o-transform: opacity 5s linear; opacity: 0.1; }
+  100% { -o-transform: opacity 5s linear; opacity: 1; }
+}
+@keyframes pulse {
+  0% { transform: opacity 5s linear; opacity: 0.1; }
+  100% { transform: opacity 5s linear; opacity: 1; }
+}
+@mixin input-placeholder($color) {
+  &::-webkit-input-placeholder {
+    color: $color;
+  }
+  &:-moz-placeholder {
+    color: $color;
+  }
+  &::-moz-placeholder {
+    color: $color;
+  }
+  &:-ms-input-placeholder {
+    color: $color;
+  }
+}
+.pulse {
+  -webkit-animation-name: pulse;
+  -moz-animation-name: pulse;
+  -o-animation-name: pulse;
+  animation-name: pulse;
+  -webkit-animation-duration: 5s;
+}
+@mixin select-text($color: none) {
+   -moz-user-select: -moz-$color;
+  -o-user-select: $color;
+  -khtml-user-select: $color;
+  -webkit-user-select: $color;
+  user-select: $color;
+}
+@mixin icons($icon-name, $w, $h) {
+  .gn-icon-#{$icon-name} {
+    display: inline-block;
+    width: $w;
+    height: $h;
+    background: url(/images/icons/#{$icon-name}.svg) no-repeat center center transparent;
+  }
+}
+@mixin moz-filter-grayscale($grayscale) {
+  @if $grayscale != 0 {
+    filter: url("data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\'><filter id=\'grayscale\'><feColorMatrix type=\'matrix\' values=\'0.3333 0.3333 0.3333 0 0 0.3333 0.3333 0.3333 0 0 0.3333 0.3333 0.3333 0 0 0 0 0 1 0\'/></filter></svg>#grayscale"); /* Firefox 3.5+ */
+    filter: grayscale($grayscale);
+  }
+  @else {
+    filter: none;
+  }
+}
+// buttons with linear gradient
+// @parametres: name, start linear gradient, stop linear gradient, color text
+@mixin button($selector, $start-color, $stop-color, $text-color: $white) {
+  .gn-btn-#{$selector} {
+    $padding: 10px;
+    background-color: $start-color;
+    @include hover-transition('background');
+    @if $stop-color != 0 {
+      @include background-image(linear-gradient(top, $start-color, $stop-color));
+    }
+    @include box-shadow(
+      rgba($black, .2) 0 -2px 0 0 inset,
+      rgba($white, .25) 0 1px 0 0 inset
+    );
+    color: $text-color;
+    &:hover {
+      @if $selector == 'danger' {
+        background: #fe5959;
+      }
+      @else {
+        background: $start-color + rgb(08, 08, 08);
+      }
+    }
+    &:active {
+      @include box-shadow(rgba($black, .2) 0 2px 0 0 inset, rgba($white, .25) 0 1px 0 0 inset);
+      padding-top: $padding + 1px;
+      padding-bottom: $padding - 1px;
+      color: rgba($text-color, .65);
+      @if $selector == 'danger' {
+        background: #df4e4e;
+        @include filter(grayscale(50%));
+      }
+      @else {
+        background: $start-color - rgb(10, 10, 10);
+      }
+    }
+    &:disabled {
+      background: $start-color + #651d32;
+      color: rgba($text-color, .7);
+      @include box-shadow(none); 
+      &:active {
+        padding: 10px 20px;
+        background: $start-color + #651d32;
+        @include box-shadow(
+          rgba($black, .2) 0 -2px 0 0 inset,
+          rgba($white, .25) 0 1px 0 0 inset
+        );
+      }
+    }
+  }
+}
+// if you need flat button, please use this mixins
+// @parametres: name, background, text-color, hover-color in text
+@mixin button-flat($selector, $fill-color, $text-color, $text-hover) {
+  .btn-flat-#{$selector} {
+    background-color: $fill-color;
+    color: $text-color;
+    @include hover-transition(all, 0.2s, linear);
+    &:hover {
+      color: $text-hover;
+    }
+  }
+}
+//if you need new color to text button, please used this mixin and set new modificator and color
+@mixin button-text-modificator($modificator, $text-color: $white) {
+  @if $modificator == 0 {
+    color: $text-color;
+  }
+  @if $modificator != 0 {
+    &.#{$modificator} {
+      color: $text-color;
+    }
+  }
+}
+
+// this mixin set property for empty button
+@mixin button-empty($modificator: 'inverse', $color: $black) {
+  &.#{$modificator} {
+    border-color: $color;
+    color:  $color;
+  }
+}
+// media queries
+$small: 980px;
+$medium: 1378px;
+$wide: 1600px;
+$large: 1920px;
+
+@mixin respond-to($media) {
+  @if $media == handhelds {
+    @media only screen and (max-width: $small) { @content; }
+  }
+  @else if $media == medium-screens {
+    @media only screen and (min-width: $small + 1) and (max-width: $medium - 1) { @content; }
+  }
+  @else if $media == wide-screens {
+    @media only screen and (min-width: $medium + 1) and (max-width: $wide - 1) { @content; }
+  }
+  @else if $media == large-screens {
+    @media only screen and (min-width: $wide + 1) and (max-width: $large - 1) { @content; }
+  }
+  @else if $media == max-screens {
+    @media only screen and (min-width: $large) { @content; }
+  }
+}

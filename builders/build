@@ -1,0 +1,10 @@
+#!/bin/bash
+set -e
+
+./builders/copyStatic
+
+node builders/compileScss.js
+
+./node_modules/coffee-script/bin/coffee --output public/js --compile app
+
+./builders/compileTemplates

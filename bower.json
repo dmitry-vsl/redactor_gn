@@ -1,0 +1,19 @@
+{
+  "name": "redactor",
+  "private": true,
+  "dependencies": {
+    "marionette": "1.8.7",
+    "jquery": "1.10.2",
+    "handlebars": "1.3.0",
+    "jqueryui-touch": "https://github.com/Creosteanu/jquery-ui-touch-punch.git#acc882c6e8292ea5dc73843e744a49327d227f36",
+    "nanoscroller": "0.8.0",
+    "jcrop": "https://github.com/tapmodo/Jcrop.git#v0.9.12",
+    "compass-mixins": "v0.12.11",
+    "backbone.babysitter": "~0.1.4",
+    "backbone.wreqr": "~1.3.1",
+    "colpick": "2.0.2"
+  },
+  "resolutions": {
+    "underscore": "1.4.4 - 1.6.0"
+  }
+}

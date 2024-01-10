@@ -1,0 +1,6 @@
+#!/bin/bash
+set -e
+mkdir -p public/templates
+templateFiles=`find templates -name '*.hbs'`
+./node_modules/handlebars/bin/handlebars $templateFiles -e hbs -a \
+  -r templates -f public/templates/templates.js

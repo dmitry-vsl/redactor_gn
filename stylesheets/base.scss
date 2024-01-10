@@ -1,0 +1,62 @@
+@import "compass/css3";
+
+* {
+  margin: 0;
+  padding: 0;
+  border: 0 none;
+  outline: none;
+  @include box-sizing(border-box);
+  // this fix webkit from iPad
+  -webkit-tap-highlight-color: transparent;
+  -webkit-font-smoothing: antialiased
+}
+html {
+  min-height: 100%;
+  height: 100%;
+  // line-height: 1;
+  font-family: 'Open Sans';
+}
+body {
+  min-height: 100%;
+  height: 100%;
+  background-color: #ebebeb;
+  font-size:0;
+  text-rendering: geometricPrecision;
+}
+// Focus placeholder hack
+input:focus::-webkit-input-placeholder {
+ color: transparent !important;
+}
+/* Mozilla Firefox 4 - 18 */
+input:focus:-moz-placeholder {
+  color: transparent !important;
+}
+/* Mozilla Firefox 19+ */
+input:focus::-moz-placeholder {
+  color: transparent !important;
+}
+/* IE 10+ */
+input:focus:-ms-input-placeholder {
+  color: transparent !important;
+}
+textarea:focus::-webkit-input-placeholder {
+ color: transparent !important;
+}
+/* Mozilla Firefox 4 - 18 */
+textarea:focus:-moz-placeholder {
+  color: transparent !important;
+}
+/* Mozilla Firefox 19+ */
+textarea:focus::-moz-placeholder {
+  color: transparent !important;
+}
+/* IE 10+ */
+textarea:focus:-ms-input-placeholder {
+  color: transparent !important;
+}
+label { cursor: pointer; }
+article, aside, footer, figure, menu, header, hgroup, nav, section, time {
+  display: block;
+}
+h1 { font-size: 100%; }
+b { font-family: "Open Sans Bold"; }

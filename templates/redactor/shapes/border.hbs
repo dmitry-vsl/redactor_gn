@@ -1,0 +1,37 @@
+<div class='gn-redactor-selection-border js-border'>
+  {{#each cornerControl}}
+    <div 
+      class="gn-redactor-resize-tool {{positionClass}}  js-zoom" 
+      data-position-left='{{positionLeft}}'
+      data-position-top='{{positionTop}}'
+    > </div>
+  {{/each}}
+
+  {{#each cornerControl}}
+    <div class="rotate-wrap {{positionClass}} js-rotate"
+      data-position-left='{{positionLeft}}'
+      data-position-top='{{positionTop}}'
+    >
+        <div class="rotate-line"></div>
+        <div class="rotate-tool"></div>
+    </div>
+  {{/each}}
+
+  {{#if typesvg}}
+    {{#if showSideControls}}
+      {{#each sideControl}}
+        <div 
+          class="gn-redactor-resize-tool {{positionClass}}  js-scaleSide" 
+          data-position-left='{{positionLeft}}'
+          data-position-top='{{positionTop}}'
+        > </div>
+      {{/each}}
+    {{/if}}
+  {{/if}}
+
+
+  {{#if typetext}}
+    <div class="gn-redactor-resize-tool right-center js-resize"></div>
+  {{/if}}
+
+</div>

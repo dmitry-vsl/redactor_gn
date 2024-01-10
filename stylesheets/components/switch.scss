@@ -1,0 +1,79 @@
+@import "../mixins";
+// switch
+.gn-switch {
+  display: inline-block;
+}
+.gn-label-control {
+  position: relative;
+  display: inline-block;
+  width: 61px;
+  height: 24px;
+  font-size: 0;
+  @include border-radius(3px);
+  overflow: hidden;
+}
+.gn-switch-control {
+  position: absolute;
+  z-index: 99;
+  display: inline-block!important;
+  width: 30px;
+  height: 22px;
+  background-color: #f5f5f5;
+  @include box-shadow (0px 2px 0px 0px rgb( 179, 179, 179 ));
+  @include border-radius(3px);
+  @include transition-property(all);
+  @include transition-duration(0.1s);
+  @include transition-timing-function(ease-in-out);
+}
+.gn-checkbox-switch {
+  position: absolute;
+  z-index: -1;
+  opacity: 0;
+}
+.gn-checkbox-switch + .gn-switch-control {
+  left: 0px;
+}
+.gn-checkbox-switch:checked + .gn-switch-control {
+  left: 30px;
+}
+.gn-checkbox-switch:checked ~ .gn-switch-on {
+  left: 0px;
+  opacity: 1;
+}
+.gn-checkbox-switch:checked ~ .gn-switch-off {
+  right: -33px;
+}
+.gn-checkbox-switch ~ .gn-switch-on {
+  left: -30px;
+  opacity: 0;
+}
+.gn-checkbox-switch ~ .gn-switch-off {
+  right: 0;
+}
+.gn-switch-label {
+  position: absolute;
+  z-index: 98;
+  display: inline-block!important;
+  height: 24px;
+  @include transition-property(left, right, opacity);
+  @include transition-duration(0.1s);
+  @include transition-timing-function(ease-in-out);
+  vertical-align: top;
+  font: 10px/24px "Open Sans Bold";
+  color: $white;
+  @include select-text;
+  @include box-shadow (0 0 7px 0 rgba(0,0,0, .06 ) inset);
+}
+.gn-switch-on {
+  position: absolute;
+  width: 33px;
+  padding-left: 7px;
+  background-color: #03a678;
+  @include border-radius(3px 0 0 3px);
+}
+.gn-switch-off {
+  width: 33px;
+  padding-left: 7px;
+  background-color: #d1d1d1;
+  @include border-radius(0 3px 3px 0);
+}

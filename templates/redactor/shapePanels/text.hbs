@@ -1,0 +1,93 @@
+<div class="panel-header">
+  <div class="caption">Text</div>
+  {{>redactor.shapePanels.closeButton}}
+  <div class="top-options">
+    <div class="gn-btn gn-btn-default js-maximize"><i class="maximize-icon"></i></div>
+    <div class="gn-btn gn-btn-default js-stretch"><i class="text-stretch-icon"></i></div>
+    <div class="gn-btn gn-btn-default js-duplicate"><i class="copy-icon"></i></div>
+    <div class="gn-btn gn-btn-default js-delete"><i class="delete-icon"></i></div>
+  </div>
+</div>
+<div class="text-wrap js-deepEditPanel">
+  <div class="block">
+    <div class="caption">Type</div>
+    <ul class='style-list type'>
+      <li class='list-item js-header' >
+        <span class="btn-name">Header</span>
+      </li>
+      <li class='list-item js-content'>
+        <span class="btn-name">Normal</span>
+      </li>
+    </ul>
+  </div>
+
+  <div class="block">
+    <div class="caption">
+      Size
+    </div>
+    <div class="inpt-wrap js-fontSizeCont">                  
+      <input type="text" class="gn-field-simple js-fontSize">
+      <div class="drop-arrow"></div>
+    </div>
+    <div class="popup size js-sizePopup">
+      <div class="arrow left"></div>
+      <div class="popup-wrapper">
+        <ul class="size-list">
+          {{#each fontSizeOptions}}
+            <li class="item js-fontSizeOption" data-fontSize='{{this}}' >
+              {{this}}
+            </li>
+          {{/each}}
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="block">
+    <div class="caption">Style</div>
+    <ul class="style-list">
+      <li class="list-item js-bold"><i class="bold-icon icon"></i></li>
+      <li class="list-item js-italic"><i class="italic-icon icon"></i></li>
+      <!--li class="list-item js-light"><i class="light-icon icon"></i></li-->
+      <li class="list-item js-underline"><i class="underline-icon icon"></i></li>
+    </ul>
+  </div>
+  <div class="block">
+    <div class="caption">Alignment</div>
+    <ul class="style-list align">
+      <li class="list-item js-justify js-justifyLeft"><i class="align-left-icon icon"></i></li>
+      <li class="list-item js-justify js-justifyFull"><i class="align-justify-icon icon"></i></li>
+      <li class="list-item js-justify js-justifyCenter"><i class="align-center-icon icon"></i></li>
+      <li class="list-item js-justify js-justifyRight"><i class="align-right-icon icon"></i></li>
+    </ul>
+  </div>
+  <div class="block">
+    <div class="caption">Color</div>          
+    <div class="color-settings js-textColor">
+    </div>
+  </div>
+  <div class="block">
+    <div class="caption">List</div>    
+    <ul class="style-list list">
+      <li class="list-item js-list js-insertOrderedList">
+        <i class="numeric-list-icon icon">
+        </i>
+      </li>
+      <li class="list-item js-list js-insertUnorderedList">
+        <i class="point-list-icon icon">
+        </i>
+      </li>
+    </ul>             
+  </div>
+</div>
+
+<div class="text-wrap js-commonEditPanel">
+  <div class="block">
+    <div class="caption">Opacity</div>
+    <div class="progress js-opacity">
+      <div class="progress-inner js-slider-stripe"></div>
+      <div class="count js-slider-text"></div>
+    </div>
+  </div>
+  {{> redactor.shapePanels.borderBlock }}
+</div>

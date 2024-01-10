@@ -1,0 +1,18 @@
+{{#if title }}
+<header id="gn-modal-header" class="gn-modal-header">
+  <h1 class="gn-modal-title">{{ title }}</h1>
+  {{!-- <button class="icon close" id="close"></button> --}}
+</header>
+{{/if}}
+<div id="gn-modal-body" class="gn-modal-body gn-message">
+  <div class="gn-modal-wrapper">
+    <div class="gn-modal-message">
+      {{ message }}
+    </div>
+  </div>
+  <div class="gn-modal-buttons">
+    {{#each buttons}}
+    <button class="gn-btn {{class}}" id="{{id}}">{{text}}</button>
+    {{/each}}
+  </div>
+</div>

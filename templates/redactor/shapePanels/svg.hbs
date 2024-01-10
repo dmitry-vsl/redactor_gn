@@ -1,0 +1,50 @@
+<div class="panel-header">
+  <div class='caption'>Shape</div>
+  {{>redactor.shapePanels.closeButton}}
+  <div class="top-options">
+    <div class="gn-btn gn-btn-default js-maximize"><i class="maximize-icon"></i></div>
+    <div class="gn-btn gn-btn-default js-duplicate"><i class="copy-icon"></i></div>
+    <div class="gn-btn gn-btn-default js-delete"><i class="delete-icon"></i></div>
+  </div>
+</div>
+<div class="image-settings-wrap">
+  <div class="shape-wrap">
+    <div class="block">
+
+      <div class="preview-block js-preview" style='background:none'>
+        <div class="shape-preview js-previewContainer">
+        </div>
+        <div class="popup shapes js-shape-select js-shapesList">
+          <div class="popup-wrapper ">
+            <ul class="shapes-list">
+              {{#each shapes}}
+                <li class='shape-item js-shapeItem' data-shape='{{this}}'>
+                  <img src="/images/redactor-img/shapes/{{this}}.svg" alt="" />
+                </li>
+              {{/each}}
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <button class="gn-btn gn-btn-primary js-upload">
+        <i class="upload-icon"></i>
+        upload svg ...
+      </button>
+
+    </div>
+  </div>
+  <div class="block">
+    <div class="caption">Opacity</div>
+    <div class="progress js-opacity">
+      <div class="progress-inner js-slider-stripe"></div>
+      <div class="count js-slider-text"></div>
+    </div>
+  </div>
+  <div class="block js-fillColorBlock">
+    <div class="caption">Fill Color</div>
+    <div class="color-settings js-fillColor">
+    </div>
+  </div>
+  {{> redactor.shapePanels.borderBlock }}
+</div>

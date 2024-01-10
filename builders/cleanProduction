@@ -1,0 +1,20 @@
+#!/bin/bash
+set -e
+
+# css
+mkdir public/tempcss
+mv public/css/all.css public/tempcss
+rm -r public/css
+mv public/tempcss public/css
+
+# js
+mkdir public/tempjs
+pushd .
+cd public/js
+rsync -R \
+  config.js \
+  libs/require.js \
+  ../tempjs
+popd
+rm -r public/js
+mv public/tempjs public/js

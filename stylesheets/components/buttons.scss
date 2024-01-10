@@ -1,0 +1,295 @@
+@import "../mixins";
+
+$simple-start: #03ad7d;
+$primary-start: #007c8c;
+$primary-end: #00707f;
+
+.gn-btn {
+  position: relative;
+  display: inline-block;
+  height: 35px;
+  padding: 10px 20px;
+  cursor: pointer;
+  font: 12px/12px "Open Sans Bold";
+  text-decoration: none;
+  text-transform: uppercase;
+  vertical-align: top;
+  @include border-radius(3px);
+  &.only-icon {
+    width: 35px;
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+}
+// without bad hack button is pressed
+// you will see this bug here http://jsfiddle.net/seekwell/rYeu8/3/
+.gn-btn:after {
+  position: absolute;
+  top: 0;
+  left: 0;
+  content: ' ';
+  height: 100%;
+  width: 100%;
+}
+
+@include button('simple', $simple-start, $blue-green);
+@include button('default', #ececec, #dcdcdc, #6e6e6e);
+@include button('primary', #2699e0, #2490d4);
+@include button('danger', #f04546, 0);
+
+@include button-flat('inverse', $black, $white, $white);
+
+.btn-flat-inverse {
+  &:disabled {
+    opacity: 0;
+  }
+  &.gn-icon-upload {
+    background-color: $black;
+  }
+}
+.gn-btn-text {
+  padding-left: 10px;
+  padding-right: 10px;
+  background-color: transparent;
+  opacity: .4;
+  @include hover-transition('opacity', 0.2s, 'linear');
+  &.grey{
+    color: #000;
+    opacity: .4;
+  }
+  &:hover {
+    opacity: .7;
+  }
+  @include button-text-modificator(0);
+  @include button-text-modificator('inverse', $black);
+}
+.gn-btn-name {
+  display: inline-block;
+  padding-top: 2px;
+  padding-left: 5px;
+  vertical-align: top;
+}
+.gn-btn-simple {
+  &.comments-tree{
+    margin-top: 10px;
+  }
+  &:active {
+    .gn-icon-hollow-plus, .gn-icon-play, .gn-icon-list, .gn-icon-path-min {
+      opacity: .65;
+    }
+  }
+  .gn-icon-upload {
+    position: absolute;
+    top: 8px;
+    left: 20px;
+  }
+}
+.gn-btn-default {
+  &.export{
+    position: relative;
+    padding-right: 10px;
+    padding-left: 10px;    
+  }
+  .gn-icon-export{
+    opacity: .5;
+  }
+  .gn-icon-settings, .gn-icon-list-inverse,
+  .gn-icon-pencil-inverse,
+  &:active{
+    .gn-icon-list-inverse,
+    .gn-icon-settings, .gn-icon-pencil-inverse,
+    .gn-icon-assign, .gn-icon-eye-inverse {
+      opacity: .3;
+    }
+    .gn-icon-export{
+      opacity: .3;
+    }
+  }
+  &.disabled {
+    opacity: .45;
+  }
+}
+.gn-btn-primary {
+  &:active {
+    .gn-icon-star, .gn-icon-eye-preview, .folder-icon {
+      opacity: .65;
+    }
+  }
+}
+.gn-btn-danger {
+  &.delete-group{
+    margin-top:20px;
+  }
+  &.edit {
+    margin-left: 5px;
+  }
+  &:disabled {
+    opacity:0.65;
+  }
+  &:active {
+    .gn-icon-star {
+      opacity: .65;
+    }
+  }
+}
+.btn-flat-inverse {
+  &.icon {
+    height: 34px;
+    padding: 9px 8px;
+    &:hover {
+      .gn-icon-settings {
+        background-image: url(/images/icons/settings-hover.svg);
+      }
+    }
+  }
+  &:hover {
+    color: $white;
+  }
+}
+.gn-btn-group {
+  display: inline-block;
+  text-align: center;
+  .btn-flat-inverse {
+    margin: 0 5px;
+    height: 34px;
+    // wtf pos? where do i see this pos?
+    &.pos {
+      position: absolute;
+      left: 80px;
+    }
+  }
+  .gn-btn {
+    margin-left: 10px;
+    // &:last-child {
+    //   margin-right: 0;
+    // }
+  }
+}
+.gn-btn-list {
+  position: absolute;
+  right: 5px;
+  top: 39px;
+  display: inline-block;
+  width: 34px;
+  height: 26px;
+  @include border-radius(2px);
+  background-color: #e0e0e0;
+  cursor: pointer;
+  font-size: 0;
+  .gn-icon-line {
+    display: inline-block;
+    width: 16px;
+    height: 3px;
+    margin: 1px 6px;
+    background-color: #b4b4b4;
+    vertical-align: top;
+  }
+}
+.gn-question-submit-button {
+  .gn-btn-simple{
+    margin-top: 40px;
+  }
+}
+.gn-btn-simple{
+  &.btn-little{
+    height: 30px;
+    padding:6px 10px;
+  }
+}
+.gn-btn-primary .gn-icon-upload {
+  position: absolute;
+  left: 20px;
+  top: 9px;
+}
+.gn-btn-empty {
+  border-width: 1px;
+  border-style: solid;
+  opacity: 0.6;
+  font-size: 10px;
+  line-height: 10px;
+  @include hover-transition('all', 0.1s, 'linear');
+  @include button-empty();
+  &:hover{
+    opacity: 1;
+  }
+  &.comments{
+    display: block;
+    width: 119px;
+    margin: 20px auto 20px;
+    letter-spacing: 0;
+    font-size: 12px;
+  }
+  &.back{
+    margin: 10px 0 0 20px;
+    border:none;
+    font-size: 12px;
+    display: block;
+    width: 110px;
+    &.head-right{
+      position: absolute;
+      left: 0;
+      top:0;
+    }
+    .gn-icon-left-inverse{
+      margin-right: 7px;
+      vertical-align: top;
+      margin-top:2px;
+    }
+  }
+  .gn-icon-pencil-inverse {
+    position: absolute;
+  }
+}
+.gn-btn-hidden {
+  display: none;
+}
+.gn-btn-primary .gn-icon-message {
+    position: absolute;
+    left: 20px;
+    top: 11px;
+}
+.gn-btn.info span{
+  line-height: 12px;
+}
+.gn-btn.logout {
+  position: absolute;
+  top: 15px;
+  right: 40px;
+  letter-spacing: 0.1em;
+}
+.gn-btn-danger {
+  &.delete {
+    padding: 12px 20px 12px 48px;
+  }
+  .gn-icon-trash {
+    position: absolute;
+    left: 20px;
+    top: 7px;
+  }
+}
+.gn-btn-usual {
+  @include hover-transition('all', 0.1s, 'linear');
+  opacity: .5;
+  color: #000;
+  .gn-icon-left-inverse {
+    margin-right: 7px;
+    vertical-align: top;
+    margin-top: 2px;
+  }
+  &:hover {
+    opacity: 1;
+  }
+}
+.gn-btn-primary{
+  &:active{
+    .gn-icon-upload{
+      opacity: 0.8;
+    }
+    .gn-icon-settings{
+      opacity: 0.8;
+    }
+    .gn-icon-hollow-plus{
+      opacity: 0.8;
+    }
+  }
+}

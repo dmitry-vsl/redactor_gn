@@ -1,0 +1,16 @@
+#!/bin/bash
+
+set -e
+
+rm -r public
+
+./builders/build
+
+node builders/concatCss.js
+
+./node_modules/csso/bin/csso public/css/all.css > public/css/all.min.css
+mv public/css/all.min.css public/css/all.css
+
+./builders/minifyJs
+
+./builders/cleanProduction

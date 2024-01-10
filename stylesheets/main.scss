@@ -1,0 +1,46 @@
+@import "compass/css3";
+@import "compass/css3/user-interface";
+@import "variables";
+.gn-container {
+  min-width: 960px;
+  min-height: 620px;
+  height: 100%;
+  &.storyboard {
+    overflow: hidden;
+    background: $white;
+  }
+  .container {
+    position: relative;
+    min-height: 100%;
+    height: 100%;
+  }
+}
+.gn-module-container {
+  height: 100%;
+  overflow: hidden;
+  @include user-select(none);
+  p {
+    @include user-select(text);
+  }
+}
+.gn-module-wrapper {
+  height: 100%;
+  position: relative;
+  overflow: hidden;
+  background-size: cover;
+}
+.gn-container {
+  & > .wrapper {
+    min-height: 100%;
+    height: 100%;
+    .gn-btn {
+      &.middle {
+        height: 36px;
+        line-height: 42px;
+      }
+      &.link {
+        width: 180px;
+      }
+    }
+  }
+}
