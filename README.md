@@ -1,6 +1,6 @@
 # RedactorGN: online presentation tool
 
-## **[Online demo](https://dmitry-vsl.github.io/redactor_gn)**
+## **[Online demo](https://redactor-gn.github.io/)**
 
 ## Credits
 
